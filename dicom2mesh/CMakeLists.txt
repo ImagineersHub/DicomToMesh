@@ -11,7 +11,7 @@ ENDIF("${VTK_MAJOR_VERSION}" LESS 9)
 include_directories( inc )
 add_executable( dicom2mesh src/main.cpp src/dicom2mesh.cpp )
 target_link_libraries( dicom2mesh dicom2meshlib ${VTK_LIBRARIES} )
-target_compile_options( dicom2mesh PRIVATE -Wall -Wno-extra-semi )
+target_compile_options( dicom2mesh PRIVATE -Wall )
 target_compile_features( dicom2mesh PRIVATE cxx_std_17 )
 
 
@@ -37,7 +37,7 @@ IF(${TESTDICOM2MESH})
     add_executable( runD2MTests src/dicom2mesh.cpp ${D2M_TESTS_INC} ${D2M_TESTS_SRC} )
     target_link_libraries( runD2MTests dicom2meshlib gtest_main)
     target_compile_features( runD2MTests PRIVATE cxx_std_17 )
-    target_compile_options( runD2MTests PRIVATE -Wall -Wno-extra-semi )
+    target_compile_options( runD2MTests PRIVATE -Wall )
 ENDIF()
 
 
